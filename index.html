@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Galeri Kenangan Abadi Xcel Mesia</title>
+  <title>Galeri Kenangan Abadi Xcel Media</title>
   <style>
     .banner {
-      width: 100%;
+      width: 100%;rrrr
     }
 
     .container {
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
-    
+
     .box {
       position: relative;
       width: calc(33.33% - 20px);
       padding: 10px;
       box-sizing: border-box;
+      overflow: hidden;
     }
     
     .image {
@@ -30,16 +32,6 @@
       margin-top: 10px;
     }
 
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      color: #fff;
-      font-size: 30px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
     .modal {
       display: none;
       position: fixed;
@@ -51,16 +43,27 @@
       background-color: rgba(0, 0, 0, 0.9);
     }
     
-    .modal-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-    }
-    
     .modal-image {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+      display: block;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1;
     }
 
     .footer {
@@ -77,6 +80,79 @@
     .footer p {
       margin: 5px 0;
     }
+
+    .mode-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .mode-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: rotateAnimation 20s linear infinite;
+    }
+
+    @keyframes rotateAnimation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .dark-mode .mode-button img {
+      animation: none;
+    }
+
+    .sun-moon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 50px;
+      height: 50px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .dark-mode .sun-moon {
+      background-image: url('https://w7.pngwing.com/pngs/44/255/png-transparent-full-moon-earth-supermoon-lunar-eclipse-full-moon-moon-atmosphere-computer-wallpaper-sphere-thumbnail.png');
+    }
+
+    .light-mode .sun-moon {
+      background-image: url('https://w7.pngwing.com/pngs/207/558/png-transparent-orange-sun-sunlight-sunlight-solar-eclipse-sun-sphere-astronomical-object-light-thumbnail.png');
+    }
+
+    .dark-mode .container {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .dark-mode .caption {
+      color: #fff;
+    }
+
+    .dark-mode .footer {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .dark-mode .footer h3 {
+      color: #aaa;
+    }
+
+    .dark-mode .footer p {
+      color: #ccc;
+    }
   </style>
 </head>
 <body>
@@ -84,64 +160,337 @@
     <img src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/bf8d279f72a5b5f97f491680654891f98956a132/11zon_resized(5).png" alt="Banner" style="width: 100%;">
   </header>
 
+  <center>
+    <h1 class="title">Galeri Kenangan 2023</h1>
+  </center>
+
   <div class="container">
-    <!-- Slot foto 1-100 -->
     <div class="box">
       <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
       <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
-      <div class="close" onclick="playSound()">&times;</div>
     </div>
     <div class="box">
       <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
       <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
-      <div class="close" onclick="playSound()">&times;</div>
     </div>
-     <div class="box">
+    <div class="box">
       <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
       <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
-      <div class="close" onclick="playSound()">&times;</div>
     </div>
     <div class="box">
       <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
       <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
-      <div class="close" onclick="playSound()">&times;</div>
     </div>
-     <div class="box">
+    <div class="box">
       <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
       <div class="caption">"Makanan sejuta umat: Indomie!"</div>
-      <div class="close" onclick="playSound()">&times;</div>
     </div>
     <div class="box">
       <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
       <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
-      <div class="close" onclick="playSound()">&times;</div>
-    </div>
-    <!-- Tambahkan elemen .box lainnya hingga slot foto 100 -->
-  </div>
-  
-  <div id="myModal" class="modal">
-    <span class="close">&times;</span>
-    <div class="modal-content">
-      <img class="modal-image">
     </div>
   </div>
 
-  <div class="footer" style="background-color: #a9a9a9; color: #000000;">
-    <h3 style="color: #000000;">Kontak</h3>
-    <p>Alamat: Indonesia
-Rawamangun, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta</p>
+    <center>
+    <h1 class="title">Galeri Kenangan 2022</h1>
+  </center>
+  
+  <div class="container">
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Makanan sejuta umat: Indomie!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
+    </div>
+  </div>
+  
+  <center>
+    <h1 class="title">Galeri Kenangan 2021</h1>
+  </center>
+
+  <div class="container">
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Makanan sejuta umat: Indomie!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
+    </div>
+  </div>
+
+  <center>
+    <h1 class="title">Galeri Kenangan 2020</h1>
+  </center>
+
+  <div class="container">
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Makanan sejuta umat: Indomie!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
+    </div>
+  </div>
+
+  <center>
+    <h1 class="title">Galeri Kenangan 2019</h1>
+  </center>
+
+  <div class="container">
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Makanan sejuta umat: Indomie!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
+    </div>
+  </div>
+
+  <center>
+    <h1 class="title">Galeri Kenangan 2018</h1>
+  </center>
+
+  <div class="container">
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Makanan sejuta umat: Indomie!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
+    </div>
+  </div>
+
+    <center>
+    <h1 class="title">Galeri Kenangan 2017</h1>
+  </center>
+
+  <div class="container">
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Makanan sejuta umat: Indomie!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
+    </div>
+  </div>
+  
+    <center>
+    <h1 class="title">Galeri Kenangan 2016</h1>
+  </center>
+
+  <div class="container">
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292582880.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Mau jadi milyuner? Gampang, tinggal nambahkan nol di saldo rekening!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292584470.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kunci sukses: jadi kunci lemari yang bisa buka segala macam pintu."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675292599624.jpg" alt="Foto 1">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Jangan bersedih, uang juga nggak pernah sedih."</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293360300.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Kalau hidup ini drama, aku pemerannya yang salah!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675293594220.jpg">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Makanan sejuta umat: Indomie!"</div>
+    </div>
+    <div class="box">
+      <img class="image" src="https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/a8aeefdbaa172600fffdd22931e69192c27bd0a4/1675295027343.jpg" alt="Foto 2">
+      <span class="close-button">&times;</span>
+      <div class="caption">"Ketawa itu murah, tapi bikin kenyang!"</div>
+    </div>
+  </div>
+
+  <div class="modal">
+    <img class="modal-image">
+  </div>
+
+  <div class="footer">
+    <h3>Kontak</h3>
+    <p>Alamat: Indonesia Rawamangun, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta</p>
     <p>Email: bangsuryajaya548@gmail.com</p>
     <p>Telepon: +62-853-7142-4822</p>
   </div>
 
-  <audio id="audio" src="sound.wav"></audio>
+  <button class="mode-button" onclick="toggleDarkMode()" aria-label="Switch to Dark Mode">
+    <div class="sun-moon"></div>
+  </button>
 
   <script>
-    var modal = document.getElementById("myModal");
+    function toggleDarkMode() {
+      var body = document.querySelector("body");
+      var modeButton = document.querySelector(".mode-button");
+      var sunMoon = document.querySelector(".sun-moon");
+
+      body.classList.toggle("dark-mode");
+
+      if (body.classList.contains("dark-mode")) {
+        modeButton.setAttribute("aria-label", "Switch to Light Mode");
+        sunMoon.style.backgroundImage = "url('https://w7.pngwing.com/pngs/44/255/png-transparent-full-moon-earth-supermoon-lunar-eclipse-full-moon-moon-atmosphere-computer-wallpaper-sphere-thumbnail.png')";
+      } else {
+        modeButton.setAttribute("aria-label", "Switch to Dark Mode");
+        sunMoon.style.backgroundImage = "url('https://w7.pngwing.com/pngs/207/558/png-transparent-orange-sun-sunlight-sunlight-solar-eclipse-sun-sphere-astronomical-object-light-thumbnail.png')";
+      }
+    }
+
+    var modal = document.querySelector(".modal");
     var modalImg = document.querySelector(".modal-image");
     var images = document.querySelectorAll(".image");
-    var closeButton = document.querySelectorAll(".close");
-    var audio = document.getElementById("audio");
 
     images.forEach(function(image) {
       image.addEventListener("click", function() {
@@ -149,17 +498,10 @@ Rawamangun, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta</p>
         modalImg.src = this.src;
       });
     });
-    
-    closeButton.forEach(function(button) {
-      button.addEventListener("click", function() {
-        modal.style.display = "none";
-      });
-    });
 
-    function playSound() {
-      audio.currentTime = 0;
-      audio.play();
-    }
+    modal.addEventListener("click", function() {
+      modal.style.display = "none";
+    });
   </script>
 </body>
 </html>

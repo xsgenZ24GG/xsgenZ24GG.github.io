@@ -1,21 +1,22 @@
-var modal = document.getElementById("myModal");
-var modalImg = document.querySelector(".modal-image");
-var images = document.querySelectorAll(".image");
-var closeButton = document.querySelector(".close");
+function toggleDarkMode() {
+  var body = document.querySelector("body");
+  var modeButton = document.querySelector(".mode-button");
+  var sunMoon = document.querySelector(".sun-moon");
+  var modeText = document.querySelector(".mode-text");
 
-images.forEach(function(image) {
-  image.addEventListener("click", function() {
-    modal.style.display = "flex";
-    modalImg.src = this.src;
-  });
-});
+  body.classList.toggle("dark-mode");
 
-closeButton.addEventListener("click", function() {
-  modal.style.display = "none";
-});
-
-modal.addEventListener("click", function(e) {
-  if (e.target === modal) {
-    modal.style.display = "none";
+  if (body.classList.contains("dark-mode")) {
+    body.classList.remove("light-mode"); // Menghapus class "light-mode" jika ada
+    modeButton.setAttribute("aria-label", "Switch to Light Mode");
+    sunMoon.style.backgroundImage = "url('https://w7.pngwing.com/pngs/44/255/png-transparent-full-moon-earth-supermoon-lunar-eclipse-full-moon-moon-atmosphere-computer-wallpaper-sphere-thumbnail.png')";
+    modeText.textContent = "Mode Siang";
+  } else {
+    body.classList.add("light-mode"); // Menambah class "light-mode" saat mode siang
+    modeButton.setAttribute("aria-label", "Switch to Dark Mode");
+    sunMoon.style.backgroundImage = "url('https://w7.pngwing.com/pngs/207/558/png-transparent-orange-sun-sunlight-sunlight-solar-eclipse-sun-sphere-astronomical-object-light-thumbnail.png')";
+    modeText.textContent = "Mode Malam";
   }
-});
+}
+
+toggleDarkMode(); // Memanggil fungsi toggleDarkMode() saat halaman dimuat
